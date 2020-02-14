@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+    <title>Podcasts</title>
+      <style>
+    body {
+      margin:30px;
+    }
+
+    /* Style the header */
+    .header {
+      background-color: #f1f1f1;
+      padding: 0px;
+      text-align: center;
+      width:100%;
+
+
+    }
+    /* Change color on hover */
+    .navbar a:hover {
+        background-color: darkgrey;
+        color: black;
+    }
+          /* Create three unequal columns that floats next to each other */
+    .column {
+      width: 100%;
+      float: left;
+      padding: 30px;
+    }
+
+    /* Left and right column */
+    .column.sideleft {
+      width: 33%;
+    }
+    .column.sideright {
+      width: 30%;
+    }
+    /* Middle column */
+    .column.middle {
+      width: 37%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+     .noBullets {
+        list-style-type:none !important;
+    }
+          /*Footer*/
+    .container-fluid
+      {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+    .card-img {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
+    }
+   img.center{
+    display:inline-block;
+    margin: 0 auto;
+    }
+
+    </style>
+  </head>
+
+  <body>
+
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
+
+
+  <div class="header" style="width: 80%; padding-right: 0; padding-left: 0">
+      <a href="Podcasts.html">
+    <img src="../static/top-medical-podcasts.jpeg" alt="podcasts1" style="width:1440px;height:300px;" class="center">
+  </a>
+  </div>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Common Conditions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://data.euro.who.int/cisid/">Infectious Diseases</a>
+          <a class="dropdown-item" href="https://www.cdc.gov/cancer/">Cancer</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/products">MyPharma</a>
+      </li>
+
+
+{#      <li class="nav-item dropdown">#}
+{#        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#          Drugs and Supplements#}
+{#        </a>#}
+{#        <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+{#          <a class="dropdown-item" href="/drugs">Drugs</a>#}
+{#          <a class="dropdown-item" href="#">Supplements</a>#}
+{#          <div class="dropdown-divider"></div>#}
+{#          <a class="dropdown-item" href="#">Reviews</a>#}
+{#          <div class="dropdown-divider"></div>#}
+{#          <a class="dropdown-item" href="/products">MyPharma</a>#}
+{#        </div>#}
+{#      </li>#}
+
+      <li class="nav-item">
+        <a class="nav-link" href="/news">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.medscape.org/">CME and Resources</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/lifestyle">Healthy Living</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/podcasts" tabindex="-1" >Podcasts</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <li class="noBullets">
+            <a class="nav-link" href="/signup" tabindex="-2" >Signup</a>
+        </li>
+{#      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+        <li class="noBullets">
+            <a class="nav-link" href="/login" tabindex="-1" >Login</a>
+        </li>
+    </form>
+  </div>
+  </nav>
+  
+  <br>
+
+
+
+  <div class="row">
+  <div class="column sideleft" style="padding-left: 1px">
+    <h4>News</h4>
+      <hr>
+      <ul class="noBullets" style="padding-left: 5px">
+
+          <li>
+              <a href="https://kanco.org/mental-health-status-in-kenya/">
+              <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="../static/mental.jpeg" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Mental Health Status In Kenya</h5>
+                        <p class="card-text"></p>
+                        <p class="card-text"><small class="text-muted">News</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+          </li>
+
+          <li>
+              <a href="https://www.medicalnewstoday.com/articles/327428.php">
+              <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="../static/news3.jpeg" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">5 healthful living factors extend disease-free life</h5>
+                        <p class="card-text"></p>
+                        <p class="card-text"><small class="text-muted">News</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+          </li>
+
+          <li>
+              <a href="https://kanco.org/mental-health-status-in-kenya/">
+              <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="../static/Neuralink1.jpeg" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Elon Musk’s Neuralink Plans to Put Chips in Human Brains by 2020.</h5>
+                        <p class="card-text"></p>
+                        <p class="card-text"><small class="text-muted">News</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+          </li>
+
+          <li>
+              <a href="https://www.nation.co.ke/counties/kisumu/Kisumu-doctors--county-government-in-standoff-over-promotions/1954182-5397926-w17m10z/index.html">
+              <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="../static/doctors+pic.jpeg" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Kisumu doctors, county government in standoff over promotions</h5>
+                        <p class="card-text"></p>
+                        <p class="card-text"><small class="text-muted">News</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+          </li>
+
+          <li>
+              <a href="https://edition.cnn.com/2020/01/21/asia/china-china-coronavirus-sars-intl-hnk/index.html">
+              <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="../static/coronavirus3.jpeg" class="card-img" alt="..." >
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">China confirms Wuhan virus can be spread by humans</h5>
+                        <p class="card-text"></p>
+                        <p class="card-text"><small class="text-muted">News</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+          </li>
+
+      </ul>
+
+
+  </div>
+
+  <div class="column middle">
+    <h2>Podcasts</h2>
+      <ul class="noBullets" style="padding-left: 5px">
+{#          <li>#}
+{#              <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/734612104&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>#}
+{#          </li>#}
+{#          <br>#}
+          <hr>
+          <br>
+          <li>
+              <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/336948993&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+          </li>
+          <br>
+          <hr>
+          <br>
+          <li>
+              <a class="spreaker-player" href="https://www.spreaker.com/show/american-glutton" data-resource="show_id=4165972" data-theme="light" data-autoplay="false" data-playlist="show" data-cover="https:&quot;https:\/\/d3wo5wojvuv7l.cloudfront.net\/images.spreaker.com\/original\/cde07deedcbba1e51148a58a2ba592e2.jpg&quot;" data-width="100%" data-height="400px">Listen to "American Glutton" on Spreaker.</a><script async src="https://widget.spreaker.com/widgets.js"></script>
+          </li>
+          <br>
+          <hr>
+          <br>
+          <li>
+            <iframe width="100%" height="300" src="https://embeds.audioboom.com/posts/7480589/embed/v4" style="background-color:transparent; display:block; padding: 0; max-width:700px;" frameborder="0" allowtransparency="allowtransparency" scrolling="no" title="Audioboom player" allow="autoplay"></iframe>
+          </li>
+{#          <br>#}
+{#          <hr>#}
+{#          <br>#}
+{#          <li>#}
+{#              <iframe width="100%" height="300" src="https://embeds.audioboom.com/posts/7418351/embed/v4" style="background-color:transparent; display:block; padding: 0; max-width:700px;" frameborder="0" allowtransparency="allowtransparency" scrolling="no" title="Audioboom player" allow="autoplay"></iframe>#}
+{#          </li>#}
+      </ul>
+  </div>
+
+  <div class="column sideright">
+    <h4>Community</h4>
+      <hr>
+    <ul class="noBullets" style="padding-left: 5px">
+        <li>
+            <div class="fb-page" data-href="https://www.facebook.com/AARHealthcareofficial/" data-tabs="timeline,events,messages" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AARHealthcareofficial/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AARHealthcareofficial/">AAR Healthcare</a></blockquote></div>
+        </li>
+{#        <br>#}
+{#        <li><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Rapid action by public-health SWAT-like teams keeps measles from spreading. But containing outbreaks is becoming harder, as we explained in March <a href="https://t.co/RlbGc6Ywbw">https://t.co/RlbGc6Ywbw</a></p>&mdash; The Economist (@TheEconomist) <a href="https://twitter.com/TheEconomist/status/1212553090907492352?ref_src=twsrc%5Etfw">January 2, 2020</a></blockquote>#}
+{#            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>#}
+{#        </li>#}
+        <br>
+        <li>
+            <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">*UK and USA are changing laws to maximise organ transplantation: How about Kenya?* <br><br>The potential of organ transplantation is dwarfed by setbacks such as shortage of organs as well as poor legislation and policies governing the same.<a href="https://t.co/4iCOdua4Tf">https://t.co/4iCOdua4Tf</a></p>&mdash; Elizabeth mbugua (@betttyliz) <a href="https://twitter.com/betttyliz/status/1208688597429305344?ref_src=twsrc%5Etfw">December 22, 2019</a></blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </li>
+        <br>
+
+    </ul>
+  </div>
+  </div>
+
+    <footer class="container-fluid bg-4 text-center" style="position: relative">
+        <hr>
+
+        <div class="card-group">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Panacea</h5>
+                    <p class="card-text">
+                        Panacea does not provide medical advice, diagnosis or treatment. <br>
+                        See additional information.<br>
+                        <br>
+                        FAQ's <br>
+                        email: support@panacea.com
+                    </p>
+                    <p class="card-text"><small class="text-muted">© 2020 panacea. All rights reserved. <br></small></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Panacea Network</h5>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+
+                    <svg class="svg--source" width="0" height="0" aria-hidden="true">
+
+                          <symbol id="svg--twitter" viewbox="0 -7 15 30">
+                            <path d="M15.36 3.434c-0.542 0.241-1.124 0.402-1.735 0.476 0.624-0.374 1.103-0.966 1.328-1.67-0.583 0.346-1.23 0.598-1.917 0.733-0.551-0.587-1.336-0.954-2.205-0.954-1.668 0-3.020 1.352-3.020 3.019 0 0.237 0.026 0.467 0.078 0.688-2.51-0.126-4.735-1.328-6.224-3.155-0.261 0.446-0.41 0.965-0.41 1.518 0 1.048 0.534 1.972 1.344 2.514-0.495-0.016-0.961-0.151-1.368-0.378 0 0.013 0 0.025 0 0.038 0 1.463 1.042 2.683 2.422 2.962-0.253 0.069-0.52 0.106-0.796 0.106-0.194 0-0.383-0.018-0.568-0.054 0.384 1.2 1.5 2.073 2.821 2.097-1.034 0.81-2.335 1.293-3.75 1.293-0.244 0-0.484-0.014-0.72-0.042 1.336 0.857 2.923 1.357 4.63 1.357 5.554 0 8.592-4.602 8.592-8.593 0-0.13-0.002-0.261-0.009-0.39 0.59-0.426 1.102-0.958 1.507-1.563z"
+                            />
+                          </symbol>
+
+                          <symbol id="svg--google" viewbox="-13 -13 72 72">
+                            <path d="M48,22h-5v-5h-4v5h-5v4h5v5h4v-5h5 M16,21v6.24h8.72c-0.67,3.76-3.93,6.5-8.72,6.5c-5.28,0-9.57-4.47-9.57-9.75
+                        s4.29-9.74,9.57-9.74c2.38,0,4.51,0.82,6.19,2.42v0.01l4.51-4.51C23.93,9.59,20.32,8,16,8C7.16,8,0,15.16,0,24s7.16,16,16,16
+                        c9.24,0,15.36-6.5,15.36-15.64c0-1.17-0.11-2.29-0.31-3.36C31.05,21,16,21,16,21z" />
+                          </symbol>
+
+                          <symbol id="svg--facebook" viewbox="0 -7 16 30">
+                            <path d="M12 3.303h-2.285c-0.27 0-0.572 0.355-0.572 0.831v1.65h2.857v2.352h-2.857v7.064h-2.698v-7.063h-2.446v-2.353h2.446v-1.384c0-1.985 1.378-3.6 3.269-3.6h2.286v2.503z" />
+                          </symbol>
+                        </svg>
+                    <div class="social-btns">
+
+                        <a class="btn facebook" href="#">
+                            <i class="fa fa-facebook">
+                                <svg role="presentation" class="svg--icon">
+                                    <use xlink:href="#svg--facebook"/>
+                                    <span class="clip">FACEBOOK</span>
+                                </svg>
+                            </i>
+                        </a>
+
+                        <a class="btn twitter" href="#"><i class="fa fa-twitter">
+                            <svg role="presentation" class="svg--icon">
+                                <use xlink:href="#svg--twitter"/>
+                            </svg>
+                        </i>
+                        </a>
+
+                        <a class="btn google" href="#">
+                            <i class="fa fa-google">
+                                <svg role="presentation" class="svg--icon">
+                                    <use xlink:href="#svg--google"/>
+                                </svg>
+                            </i>
+                        </a>
+
+                    </div>
+                    <br>
+                    <br>
+                    <p class="card-text"><small class="text-muted">Follow us. </small></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">About Us</h5>
+                    <p class="card-text" >
+                        About Panacea <br>
+                        Privacy Policy <br>
+                        Do Not Sell My Personal Information<br>
+                        Advertising Policy<br>
+                        Help Center<br>
+
+                    </p>
+                    <p class="card-text"><small class="text-muted">Panacea</small></p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

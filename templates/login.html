@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock head %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <div class="container" id="main-section">
+        <div class="jumbotron jumbotron-fluid">
+        <h1 class="display-4">Login here</h1>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for category, message in messages %}
+                  <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            <form action="{{ url_for("login") }}" method="POST">
+               <fieldset>
+                   <div class="form-group">
+                       <label for="">Email</label><br>
+                        <input type="email" name="email" placeholder="Enter email">
+                  </div>
+                    <div class="form-group">
+                       <label for="">Password</label><br>
+                        <input type="password" name="password" placeholder="Enter password">
+                  </div>
+
+                   <input type="submit"  value="Login">
+
+               </fieldset>
+            </form>
+        </div>
+    </div>
+
+{% endblock body %}

@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+{% endblock head %}
+
+{% block body %}
+
+    <form action="/drugs" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text"name="name"class="form=control"placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="">Date</label>
+            <input type="date"name="Date"class="form=control"placeholder="Date">
+        </div>
+        <div class="form-group">
+            <label for="">Uses</label>
+            <input type="text"name="uses"class="form=control"placeholder="Uses">
+        </div>
+        <div class="form-group">
+            <label for="">Side Effects</label>
+            <input type="text"name="side_effects"class="form=control"placeholder="Side Effects">
+        </div>
+        <div class="form-group">
+            <label for="">Overdose</label>
+            <input type="text"name="overdose"class="form=control"placeholder="Overdose">
+            <div class="form-group">
+            <label for="">Reviews</label>
+            <input type="text"name="reviews"class="form=control"placeholder="Reviews">
+        </div>
+        </div>
+        <input type="submit"class="btn btn-info"value="Post Drug">
+    </form>
+
+    {% if drugs %}
+        <div class="container">
+                <div class="row">
+                    {% for drug in drugs %}
+                        <div class="col col-md-4">
+                            <div class="card" style="width: 18rem;">
+    {#                            <img src="static\shoe2.jpg" class="card-img-top" alt="...">#}
+                                <div class="card-body">
+                                    NAME {{ drug.name }}
+                                    DATE {{ drug.date }}
+                                    USES {{ drug.uses }}
+                                    SIDE EFFECTS {{ drug.side_effects }}
+                                    OVERDOSE {{ drug.overdose }}
+                                    REVIEWS {{ drug.reviews }}
+                                 </div>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+           </div>
+    {% else %}
+            <p>Product not available</p>
+    {% endif %}
+
+{% endblock body %}

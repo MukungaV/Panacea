@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block title %} MyPharma {% endblock title %}
+{#{% block head %}#}
+{##}
+{#{% endblock head %}#}
+
+{% block body %}
+
+{#    <div style="background-image: url('../static/mypharma2.jpg') "></div>#}
+{#    display products#}
+    {% if products %}
+       <div class="container" {#  style="background-image: url('../static/mypharma2.jpg'); width: 1300px" #}>
+            <div class="row">
+                {% for product in products %}
+                    <div class="col col-md-4">
+                        <a href="/products/{{ product.id }}">
+                            <div class="card" style="width: 18rem; margin-top: 20px;">
+                                <img src="{{ product.image }}" class="card-img-top" alt="..." style="height: 220px">
+                                <div class="card-body">
+                                      <h5 class="card-title">{{ product.name }}</h5>
+                                      <br>
+                                     <p class="text-muted">Price: {{ product.price }}</p> <br>
+                                 </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+       </div>
+    {% else %}
+        <p>Product not available</p>
+    {% endif %}
+<br><br><br><br>
+
+{#    product upload#}
+    <div class="card mb-3" style="width: 100%;">
+      <div class="row no-gutters">
+        <div class="col-md-5">
+          <img src="../static/mypharma1.jpg" class="card-img" alt="..." style="height: 100%; width: 100%">
+        </div>
+        <div class="col-md-7">
+          <div class="card-body" style="{# text-align:center #}">
+              <a href="/upload"><h3 style="{# text-align:center #}">Upload Products</h3></a>
+             <h5 class="card-title">Become a retailer!</h5>
+            <p class="card-text">Sign up and start your journey!</p>
+              <h5 class="card-title">Already a member?</h5>
+            <p class="card-text">Log in and upload products</p>
+              <div class="form-group">
+                       <label for="">Email</label><br>
+                        <input type="email" name="email" placeholder="Enter email">
+                  </div>
+                    <div class="form-group">
+                       <label for="">Password</label><br>
+                        <input type="password" name="password" placeholder="Enter password">
+                  </div>
+
+
+                   <a href="/upload"><input type="submit"  value="Login" ></a>
+                <br>
+                <br>
+            <p class="card-text"><small class="text-muted">MyPharma is NOT licenced by the Pharmacy and Poisons Board.<br>
+                Panacea. MyPharma <br></small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock body %}
+

@@ -1,0 +1,46 @@
+{% extends'layout.html' %}
+{% block body %}
+    {% if product %}
+{#        {{ product.name }}#}
+
+{##}
+{#        <div class="card" style="width: 18rem; margin-top: 20px;">#}
+{#            <img src="{{ product.image }}" class="card-img-top" alt="...">#}
+{#            <div class="card-body">#}
+{#                <h5 class="card-title">{{ product.name }}</h5>#}
+{#                <br>#}
+{#                <p class="text-muted">Price: {{ product.price }}</p> <br>#}
+{#            </div>#}
+{#        </div>#}
+
+        <div style="padding-left: 150px; padding-right: 150px; ">
+        <div class="card mb-3" style="max-width: 1100px;" >
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="/{{ product.image }}" class="card-img" alt="..." style="width: 17vw; height: 17vw;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ product.name }}</h4>
+                        <h5 class="card-text"><small class="text-muted">Price: {{ product.price }}</small></h5>
+                        <h4>Uses</h4>
+                        <p class="card-text">{{ product.uses }}</p>
+                        <h4>Reviews</h4>
+                        <p class="card-text">{{ product.reviews }}</p>
+                        <h4>Side Effects</h4>
+                        <p class="card-text">{{ product.side_effects }}</p>
+                        <h4>Overdose</h4>
+                        <p class="card-text">{{ product.overdose }}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <a href="/products/update/{{ product.id }}" class="btn btn-info">UPDATE</a>
+
+
+    {% else %}
+        <p>No Product Found</p>
+    {% endif %}
+{% endblock body %}

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+{#    <script src="js/bootstrap.min.js"></script>#}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+    <title>Panacea</title>
+      <style>
+    body {
+      margin: 5px;
+    }
+
+    /* Style the header */
+    .header {
+      background-color: #e6eeff;
+      padding: 20px;
+      text-align: center;
+    }
+    /* Change color on hover */
+    .navbar a:hover {
+        background-color: darkgrey;
+        color: black;
+    }
+    .noBullets {
+        list-style-type:none !important;
+        }
+
+      /*Footer*/
+    .container-fluid
+      {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+          * {
+  box-sizing: border-box;
+}
+
+    /* Create three equal columns that floats next to each other */
+    .column  {
+      float: left;
+      width: 33.33%;
+      padding: 10px;
+      height: 300px; /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+        }
+
+        .container_upload {
+            background: gray;
+            min-height: 400px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+    }
+    {#    /*Can achive using vw css unit*/#}
+        .row-full {
+            width: 100%;
+            position: relative;
+            margin-left: -50vw;
+            height: 100px;
+            margin-top: 0;
+            left: 50%;
+        }
+              /* Create three unequal columns that floats next to each other */
+    .column {
+      width: 100%;
+      float: left;
+      padding: 30px;
+    }
+
+    /* Left and right column */
+    .column.sideleft {
+      width: 33%;
+    }
+    .column.sideright {
+      width: 33%;
+    }
+    /* Middle column */
+    .column.middle {
+      width: 33%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+      .box {
+      display: flex;
+      width: 100%;
+      height: 8px;
+      margin: 5px 0px 60px 0px;
+    }
+
+    .box-sm {
+      height: 8px;
+      margin: 0;
+      flex-grow: 1;
+      transition: all .8s ease-in-out;
+      cursor: pointer;
+    }
+    .d-block{
+        {#width: 450px;#}
+        height: 700px;
+    }
+
+      .card-img {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
+    }
+
+    .white-space: pre-wrap;
+
+    </style>
+  </head>
+
+  <body>
+
+  <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
+
+  <a href="/">
+  <div class="header">
+      <h1>Panacea</h1>
+  </div>
+  </a>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+{#  <a class="navbar-brand" href="/">Home</a>#}
+{#  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
+{#    <span class="navbar-toggler-icon"></span>#}
+{#  </button>#}
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Common Conditions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://data.euro.who.int/cisid/">Infectious Diseases</a>
+          <a class="dropdown-item" href="https://www.cdc.gov/cancer/">Cancer</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/products">MyPharma</a>
+      </li>
+
+{#      <li class="nav-item dropdown">#}
+{#        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#          Drugs and Supplements#}
+{#        </a>#}
+{#        <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+{#          <a class="dropdown-item" href="/drugs">Drugs</a>#}
+{#          <a class="dropdown-item" href="#">Supplements</a>#}
+{#          <div class="dropdown-divider"></div>#}
+{#          <a class="dropdown-item" href="#">Reviews</a>#}
+{#          <div class="dropdown-divider"></div>#}
+{#          <a class="dropdown-item" href="/products">MyPharma</a>#}
+{#        </div>#}
+{#      </li>#}
+
+      <li class="nav-item">
+        <a class="nav-link" href="/news">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.medscape.org/">CME and Resources</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/lifestyle">Healthy Living</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/podcasts" tabindex="-1" >Podcasts</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+{#      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
+        <li class="noBullets">
+            <a class="nav-link" href="/signup" tabindex="-2" >Signup</a>
+        </li>
+{#      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+        <li class="noBullets">
+            <a class="nav-link" href="/login" tabindex="-1" >Login</a>
+        </li>
+    </form>
+  </div>
+</nav>
+
+
+{#    <footer class="container-fluid bg-4 text-center">#}
+{#        <hr>#}
+{#      <div class="card-group">#}
+{#      <div class="card">#}
+{#        <div class="card-body">#}
+{#          <h5 class="card-title">Panacea</h5>#}
+{#          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
+{#          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="card">#}
+{#        <div class="card-body">#}
+{#          <h5 class="card-title">About Us</h5>#}
+{#          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>#}
+{#          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="card">#}
+{#        <div class="card-body">#}
+{#          <h5 class="card-title">Panacea Network</h5>#}
+{#          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>#}
+{#          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#    </footer>#}
+
+  <script src="js/bootstrap.min.js"></script>
+
+{% block content %}
+
+    {% block body %}
+    {% endblock body %}
+    <footer class="container-fluid bg-4 text-center" style="position: relative">
+        <hr>
+
+        <div class="card-group">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Panacea</h5>
+                    <p class="card-text">
+                        Panacea does not provide medical advice, diagnosis or treatment. <br>
+                        See additional information.<br>
+                        <br>
+                        FAQ's <br>
+                        email: support@panacea.com
+                    </p>
+                    <p class="card-text"><small class="text-muted">© 2020 panacea. All rights reserved. <br></small></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Panacea Network</h5>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+
+                    <svg class="svg--source" width="0" height="0" aria-hidden="true">
+
+                          <symbol id="svg--twitter" viewbox="0 -7 15 30">
+                            <path d="M15.36 3.434c-0.542 0.241-1.124 0.402-1.735 0.476 0.624-0.374 1.103-0.966 1.328-1.67-0.583 0.346-1.23 0.598-1.917 0.733-0.551-0.587-1.336-0.954-2.205-0.954-1.668 0-3.020 1.352-3.020 3.019 0 0.237 0.026 0.467 0.078 0.688-2.51-0.126-4.735-1.328-6.224-3.155-0.261 0.446-0.41 0.965-0.41 1.518 0 1.048 0.534 1.972 1.344 2.514-0.495-0.016-0.961-0.151-1.368-0.378 0 0.013 0 0.025 0 0.038 0 1.463 1.042 2.683 2.422 2.962-0.253 0.069-0.52 0.106-0.796 0.106-0.194 0-0.383-0.018-0.568-0.054 0.384 1.2 1.5 2.073 2.821 2.097-1.034 0.81-2.335 1.293-3.75 1.293-0.244 0-0.484-0.014-0.72-0.042 1.336 0.857 2.923 1.357 4.63 1.357 5.554 0 8.592-4.602 8.592-8.593 0-0.13-0.002-0.261-0.009-0.39 0.59-0.426 1.102-0.958 1.507-1.563z"
+                            />
+                          </symbol>
+
+                          <symbol id="svg--google" viewbox="-13 -13 72 72">
+                            <path d="M48,22h-5v-5h-4v5h-5v4h5v5h4v-5h5 M16,21v6.24h8.72c-0.67,3.76-3.93,6.5-8.72,6.5c-5.28,0-9.57-4.47-9.57-9.75
+                        s4.29-9.74,9.57-9.74c2.38,0,4.51,0.82,6.19,2.42v0.01l4.51-4.51C23.93,9.59,20.32,8,16,8C7.16,8,0,15.16,0,24s7.16,16,16,16
+                        c9.24,0,15.36-6.5,15.36-15.64c0-1.17-0.11-2.29-0.31-3.36C31.05,21,16,21,16,21z" />
+                          </symbol>
+
+                          <symbol id="svg--facebook" viewbox="0 -7 16 30">
+                            <path d="M12 3.303h-2.285c-0.27 0-0.572 0.355-0.572 0.831v1.65h2.857v2.352h-2.857v7.064h-2.698v-7.063h-2.446v-2.353h2.446v-1.384c0-1.985 1.378-3.6 3.269-3.6h2.286v2.503z" />
+                          </symbol>
+                        </svg>
+                    <div class="social-btns">
+
+                        <a class="btn facebook" href="#">
+                            <i class="fa fa-facebook">
+                                <svg role="presentation" class="svg--icon">
+                                    <use xlink:href="#svg--facebook"/>
+                                    <span class="clip">FACEBOOK</span>
+                                </svg>
+                            </i>
+                        </a>
+
+                        <a class="btn twitter" href="#"><i class="fa fa-twitter">
+                            <svg role="presentation" class="svg--icon">
+                                <use xlink:href="#svg--twitter"/>
+                            </svg>
+                        </i>
+                        </a>
+
+                        <a class="btn google" href="#">
+                            <i class="fa fa-google">
+                                <svg role="presentation" class="svg--icon">
+                                    <use xlink:href="#svg--google"/>
+                                </svg>
+                            </i>
+                        </a>
+
+                    </div>
+                    <br>
+                    <br>
+                    <p class="card-text"><small class="text-muted">Follow us. </small></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">About Us</h5>
+                    <p class="card-text" >
+                        About Panacea <br>
+                        Privacy Policy <br>
+                        Do Not Sell My Personal Information<br>
+                        Advertising Policy<br>
+                        Help Center<br>
+
+                    </p>
+                    <p class="card-text"><small class="text-muted">Panacea</small></p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+{% endblock content %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

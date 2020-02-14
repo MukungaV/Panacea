@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Update Product</div>
+                    <div class="card-body">
+                        <form action="/products/update/{{ product.id }}/" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="">Name</label>
+                                <input type="hidden" value="{{ product.name }}">
+                                <input type="text" value="{{ product.name }}" name="productname" class="form=control"
+                                       placeholder="Enter name" required>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="">Price</label>
+                                <input type="hidden" value="{{ product.price }}">
+                                <input type="number" value="{{ product.price }}" name="productprice"
+                                       class="form=control" placeholder="Enter price" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productuses">Uses</label>
+                                {#<input type="text" name="productuses" class="form=control" placeholder="Enter uses"#}
+                                {#required>#}
+                                <textarea class="form-control" rows="5" name="productuses" id="productuses"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productreviews">Reviews</label>
+                                {#  <input type="text" name="productreviews" class="form=control"#}
+                                {#placeholder="Enter reviews"#}
+                                {#required>#}
+                                <textarea class="form-control" rows="5" name="productreviews" id="productreviews"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productside_effects">Side Effects</label>
+                                {#<input type="text" name="productside_effects" class="form=control" placeholder="Enter side effects"#}
+                                {#                                   required>#}
+                                <textarea class="form-control" rows="5" id="productside_effects"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productoverdose">Overdose</label>
+                                {#<input type="text" name="productoverdose" class="form=control"#}
+                                {# placeholder="Enter overdose effects"#}
+                                {#required>#}
+                                <textarea class="form-control" rows="5" name="productoverdose" id="productoverdose"></textarea>
+                            </div>
+
+                            <input type="file" name="productimage" value="{{ product.image }}">
+
+                            <a href="/products/delete/{{ product.id }}" class="btn btn-danger">DELETE</a>
+                            <input type="submit" class="btn btn-info" value="Update Product">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock body %}

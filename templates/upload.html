@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+{% endblock head %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card">
+                <div class="card-header">Upload Products</div>
+                <div class="card-body">
+                    <form action="{{ url_for('products') }}" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" name="productname" class="form=control" placeholder="Enter name"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productprice">Price</label>
+                            <input type="number" name="productprice" class="form=control" placeholder="Enter price"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Uses</label>
+{#                            <input type="text" name="productuses" class="form=control" placeholder="Enter uses" required>#}
+                            <textarea class="form-control" rows="5" name="productuses" id="productuses"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Reviews</label>
+{#                              <input type="text" name="productreviews" class="form=control" placeholder="Enter reviews" required>#}
+                            <textarea class="form-control" rows="5" name="productreviews" id="productreviews"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Side Effects</label>
+{#                            <input type="text" name="productside_effects" class="form=control" placeholder="Enter side effects" required>#}
+                            <textarea class="form-control" rows="5" id="productside_effects" name="productside_effects"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Overdose</label>
+{#                            <input type="text" name="productoverdose" class="form=control" placeholder="Enter overdose effects" required>#}
+                            <textarea class="form-control" rows="5" name="productoverdose" id="productoverdose"></textarea>
+                        </div>
+
+                        <input type="file" name="productimage">
+                        <input type="submit" class="btn btn-info" value="Post Product">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% if products %}
+       <div class="container" {#  style="background-image: url('../static/mypharma2.jpg'); width: 1300px" #}>
+            <div class="row">
+                {% for product in products %}
+                    <div class="col col-md-4">
+                        <a href="/products/{{ product.id }}">
+                            <div class="card" style="width: 18rem; margin-top: 20px;">
+                                <img src="{{ product.image }}" class="card-img-top" alt="..." style="height: 200px">
+                                <div class="card-body">
+                                      <h5 class="card-title">{{ product.name }}</h5>
+                                      <br>
+                                     <p class="text-muted">Price: {{ product.price }}</p> <br>
+                                 </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+       </div>
+    {% else %}
+        <p>Product not available</p>
+    {% endif %}
+
+{% endblock body %}
